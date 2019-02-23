@@ -1,29 +1,52 @@
 <template>
   <div id="app">
-    <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
-    </div>
-    <router-view/>
+
+   <keep-alive>
+      <router-view/>
+   </keep-alive>
+
+      <div class="items">
+	      <router-link v-for="(tabItem, index) in tabList" :key="index" :name="tabItem.name" :class="tabItem.icon" :to="tabItem.path" class="item">
+	         {{tabItem.name}}
+	      </router-link>
+   		</div>
+    
   </div>
 </template>
-
-<style lang="scss">
-#app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-}
-#nav {
-  padding: 30px;
-  a {
-    font-weight: bold;
-    color: #2c3e50;
-    &.router-link-exact-active {
-      color: #42b983;
+<script>
+export default {
+  data(){
+    return {
+      tabList: [
+       {name: '电影', icon: 'iconfont icon-dianying', path: '/movie'},
+        {name: '影院', icon: 'iconfont icon-yingyuan', path: '/cinema'},
+        {name: '我的', icon: 'iconfont icon-ren', path: '/mine'}
+      ]
     }
   }
 }
+</script>
+
+
+<style lang="scss">
+	.items{
+		width: 100%;
+    height: 49px;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    display: flex;
+    justify-content: space-around;
+    border-top: 1px solid #ddd;
+    box-sizing: border-box;
+    .item{
+    	width: 33%;
+    	text-align: center;
+    	display: flex;
+    	flex-direction: column;
+    }
+    .router-link-active{
+    	color: #f03d37;
+    }
+	}
 </style>
