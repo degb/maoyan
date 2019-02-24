@@ -29,18 +29,18 @@
     "last 2 versions",
     "not ie <= 8"
   ],
-  "vue":{
-	  "devServer": {
-		    "proxy": {
-		      "/ajax": {
-		        "target": "http://m.maoyan.com",
-		        "changeOrigin": true
-		      },
-              "/dianying":{
-            	  "target":"http://m.maoyan.com",
-            	  "changeOrigin":true
-              }
-		    }
-		  }
+  "vue": {
+    "devServer": {
+      "proxy": {
+        "/ajax": {
+          "target": "http://m.maoyan.com",
+          "changeOrigin": true
+        },
+        "/dianying": {
+          "target": "http://m.maoyan.com",
+          "changeOrigin": true
+        }
+      }
+    }
   }
 }
